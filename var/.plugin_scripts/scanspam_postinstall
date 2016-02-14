@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" > /etc/cron.d/scanspam
+echo "15 * * * * root /usr/local/ispmgr/addon/scanspam.task.sh  >/dev/null 2>&1" >> /etc/cron.d/scanspam
+echo >> /etc/cron.d/scanspam

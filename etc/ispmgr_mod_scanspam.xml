@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Title: ScanSpam plugin.
+ * Version: 1.0.1 (15/Feb/2016)
+ * Author: Denis.
+ * License: GPL.
+ * Site: https://montenegro-it.com
+ * Email: contact@montenegro-it.com
+-->
+<mgrdata>
+    <plugin name="scanspam" version="1.0.1">
+        <name lang="ru">Сканирование спама, обучение и удаление</name>
+        <description lang="ru">Микроплагин предназдачен для обучения spamassassin на базе писем отмеченные пользователями как спамерские и для удаления старых спам-писем.</description>
+        <url>https://montenegro-it.com/files/scanspam.tar.gz</url>
+        <site>https://montenegro-it.com/plugins/scanspam.html</site>
+        <version>1.0.1</version>
+        <lang>php</lang>
+        <langver strict="no">5.2</langver>
+        <manager>ispmgr</manager>
+        <author name="Montenegro IT" contacts="contact@montenegro-it.com">Montenegro IT</author>
+    </plugin>
+    <handler name="scanspam.php" type="xml">
+        <func minlevel="7">scanspam.setting</func>
+    </handler>
+    <mainmenu level="7" name="scanspam" startpage="spamassassin">
+        <node name="antispam">
+            <node name="scanspam.setting"/>
+        </node>
+    </mainmenu>
+    <metadata name="scanspam.setting" type="form">
+        <form>
+            <field name="scan_enable">
+                <input type="checkbox" name="scan_enable"/>
+                <desc name="scan_enable_desc"/>
+            </field>
+            <field fullwidth="yes">
+                <textdata name="delete_spam" type="msg" warning="yes"/>
+            </field>
+      
+            <field name="delete_enable">
+                <input type="checkbox" name="delete_enable"/>
+                <desc name="delete_enable_desc"/>
+            </field>
+            <field name="time">
+                <select name="time"/>
+            </field>
+        </form>
+    </metadata>
+    <lang name="ru">
+        <messages name="scanspam.setting">
+            <msg name="scan_enable">Сканировать ящики со спамом для обучения</msg>
+            <msg name="delete_enable">Автоматическое удаление писем</msg>
+            <msg name="delete_spam">Будьте внимательнее с опциями ниже, письма будут удаляться безвозвратно!</msg>
+            <msg name="scan_enable_desc">Письма в ящиках "Спам" всех пользователей будут автоматически сканироваться для обучения spamassassin</msg>
+            <msg name="delete_enable_desc">Письма в ящиках "Спам" всех пользователей будут автоматически удаляться через время указанное в форме ниже</msg>
+            <msg name="time">Очищать спам старше дней</msg>
+            <msg name="warning">Подробная информация о работе модуля представлена на справочной странице</msg>
+            <msg name="title">Настройка модуля работы со спамом</msg>
+        </messages>
+        <messages name="desktop">
+            <msg name="menu_scanspam.setting" level = "7">Сканирование спама</msg>
+        </messages>
+    </lang>
+</mgrdata>
